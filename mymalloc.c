@@ -7,7 +7,7 @@ char memory[MEM_SIZE];
 typedef struct Block
 {
     size_t size;
-    int isfree; //1 - free , 0 - allocated
+    int isfree; // 1 - free , 0 - allocated
     struct Block *next;
 } Block;
 
@@ -63,7 +63,7 @@ void MyFree(void *ptr)
     {
         curr->size += sizeof(Block) + next_block->size;
         curr->next = next_block->next;
-        // printf("Merged with right free block!!!\n");
+        // printf("Merged with right free block\n");
     }
 
     Block *prev_block = free_list;
@@ -78,7 +78,7 @@ void MyFree(void *ptr)
         {
             prev_block->size += sizeof(Block) + prev_next_block->size;
             prev_block->next = prev_next_block->next;
-            // printf("Merged with left free block!!!\n");
+            // printf("Merged with left free block\n");
         }
     }
 }
@@ -94,7 +94,6 @@ void PrintMemoryBlocks()
         else
             var = 'a';
         printf("[%ld, %zu, %c]\t", sizeof(struct Block), curr->size, var);
-
         curr = curr->next;
     }
     printf("\n");
