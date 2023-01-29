@@ -93,7 +93,7 @@ void PrintMemoryBlocks()
             var = 'f';
         else
             var = 'a';
-        printf("(%ld, %zu, %c)  ", sizeof(struct Block), curr->size, var);
+        printf("[%ld, %zu, %c]\t", sizeof(struct Block), curr->size, var);
 
         curr = curr->next;
     }
